@@ -11,7 +11,7 @@ export const Sidebar = () => {
    <WorkspaceSwitcher/>
    <SidebarButton icon={Home} label="Home" isActive={pathname.includes("/workspace")}/>
    <SidebarButton icon={MessageSquare} label="Dms" />
-   <SidebarButton icon={Bell} label="Notifications" />
+   <SidebarButton icon={Bell} label="Activity" />
    <SidebarButton icon={MoreHorizontal} label="More" />
    <div className="flex flex-col items-center justify-center gap-y-1 mt-auto">
     <UserButton/>

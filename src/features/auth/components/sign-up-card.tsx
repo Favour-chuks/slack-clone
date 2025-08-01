@@ -37,6 +37,7 @@ export const SignUpCard = ({ setState }: SignUpCardProps) => {
       setPending(false);
     });
   };
+  
   const onPasswordSignUp = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 

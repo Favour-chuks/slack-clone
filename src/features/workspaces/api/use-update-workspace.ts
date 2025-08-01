@@ -46,7 +46,6 @@ setStatus("error")
  }
 } finally {
 setStatus('settled')
-
  options?.onSettled?.()
 }
 

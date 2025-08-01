@@ -23,7 +23,7 @@ export const create = mutation({
    throw new Error("Unauthorized")
   }
 
-  // TODO: create a proper method later
+
   const joinCode = generateCode();
 
   const workspaceId = await ctx.db.insert("workspaces", {
@@ -38,6 +38,10 @@ export const create = mutation({
    role: "admin"
   });
 
+  await ctx.db.insert("channels", {
+    name: "general",
+    workspaceId,
+  })
   return workspaceId;
  },
 })
@@ -95,6 +99,8 @@ export const getById = query({
  },
 })
 
+
+// ! remeber to check this to figure out why it is not updating despite it 
 export const update = mutation({
   args: {
     id: v.id("workspaces"),
@@ -121,7 +127,7 @@ export const update = mutation({
   });
 
   return args.id
-  },
+  }
 })
 
 export const remove = mutation({
@@ -144,15 +150,15 @@ export const remove = mutation({
    throw new Error("Unauthorized");
   }
   
-  const {members} = await Promise.all([
+  const [members] = await Promise.all([
     ctx.db
     .query("members")
     .withIndex("by_workspace_id", (q)=> q.eq("workspaceId", args.id))
   ])
 
-  for (const member of members){
-    await ctx.db.delete(member.id)
-  }
+  for await (const member of members) {
+      await ctx.db.delete(member._id)
+    }
 
   await ctx.db.delete(args.id);
 

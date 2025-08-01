@@ -31,14 +31,15 @@ const image = "image" in data? data.image : undefined;
 const name = "name" in data ? data.name : "User";
   // const { image, name } = data;
 
+  
   const avatarfallback = name?.charAt(0).toUpperCase();
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger className="outline-none relative">
-        <Avatar className="size-10 hover:opacity-75 transition">
-          <AvatarImage alt={name} src={image} />
-          <AvatarFallback className="bg-sky-500 text-white">
+        <Avatar className="rounded-md size-10 hover:opacity-75 transition">
+          <AvatarImage alt={name} src={image} className="rounded-md"/>
+          <AvatarFallback className="rounded-md bg-sky-500 text-white">
             {avatarfallback}
           </AvatarFallback>
         </Avatar>

@@ -36,13 +36,14 @@ export const SignInCard = ({ setState }: SignInCardProps) => {
     });
   };
   const onPasswordSignIn = (e: React.FormEvent<HTMLFormElement>) => {
-    setPending(true);
     e.preventDefault();
 
+    setPending(true);
      signIn("password", { email, password, flow: "signIn" })
       .catch((error) => {
         setError("invalid email or password");
-        throw new error(error);
+        // throw new error(error.message);
+        console.error(error.message)
       })
       .finally(() => {
         setPending(false);
