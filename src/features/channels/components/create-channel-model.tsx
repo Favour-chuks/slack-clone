@@ -17,13 +17,13 @@ import { useRouter } from "next/navigation";
 import { useWorkspaceId } from "@/hooks/use-workspace-id";
 
 export const CreateChannelModal = () => {
-const router = useRouter();
+  const workspaceId = useWorkspaceId();
+  const router = useRouter();
 
 const [open, setOpen] = useCreateChannelModal()
-const [name, setName] = useState("")
 const {mutate, isPending} = useCreateChannel();
 
-const workspaceId = useWorkspaceId();
+const [name, setName] = useState("")
 
 const handleChange = (e:React.ChangeEvent<HTMLInputElement>) => {
  const value = e.target.value.replace(/\s+/g, "-").toLowerCase()
@@ -42,8 +42,11 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 {
  onSuccess:(id) => {
   toast.success("Channnel Created");
-  router.push(`/workspace/${workspaceId}/${id}`)
+  router.push(`/workspace/${workspaceId}/channel/${id}`)
  handleClose();
+ },
+ onError:(error) => {
+   toast.error("failed to create a channel")
  },
 }
 );
