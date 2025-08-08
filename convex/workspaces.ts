@@ -187,6 +187,9 @@ export const remove = mutation({
       await ctx.db.delete(member._id)
     }
 
+    // TODO: remove associated messages
+
+    
   await ctx.db.delete(args.id);
 
   return args.id
