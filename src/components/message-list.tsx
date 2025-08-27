@@ -25,6 +25,10 @@ interface MessageListProps {
 
 const formatDateLabel = (dateStr : string ) => {
  const date = new Date(dateStr);
+ 
+ console.log(`the date variable is: ${date}, while the dateStr is: ${dateStr}`)
+ 
+ if (isNaN(date.getTime())) return "Invalid date";
 
  if(isToday(date)) return "Today";
  if(isYesterday(date)) return "Yesterday";
