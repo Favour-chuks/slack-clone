@@ -17,7 +17,7 @@ export const Thumbnail = ({ url }: ThumbnailProps) => {
 
   return (
     <Dialog>
-      <DialogTrigger>
+      <DialogTrigger asChild>
         <div className="relative overflow-hidden max-w-[350px] border rounded-lg my-2 cursor-zoom-in">
           <img
             src={url}

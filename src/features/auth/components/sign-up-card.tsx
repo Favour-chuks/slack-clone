@@ -49,8 +49,6 @@ export const SignUpCard = ({ setState }: SignUpCardProps) => {
       return setError("sorry the name cannot be found");
     }
 
-    // ! remember to remove this later
-    console.log(name)
 
     setPending(true);
     signIn("password", { name, email, password, flow: "signUp" })

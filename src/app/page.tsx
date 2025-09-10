@@ -6,6 +6,7 @@ import { UserButton } from "@/features/auth/components/user-button";
 import { useGetWorkspaces } from "@/features/workspaces/api/use-get-workspaces";
 import { useCreateWorkspaceModal } from "@/features/workspaces/store/use-create-workspace-modal";
 import { useRouter } from "next/navigation";
+import { Loader } from "lucide-react";
 
 export default function Home() {
   const router = useRouter();
@@ -20,16 +21,14 @@ export default function Home() {
 
     if (workspaceId) {
       router.replace(`/workspace/${workspaceId}`);
-      console.log("redirect to workspace");
     } else if (!open) {
       setOpen(true)
-      console.log("open creating model");
     }
   }, [workspaceId, isLoading, open, setOpen, router]);
 
   return (
-    <>
-      <UserButton />
-    </>
+    <div className="w-full h-full flex items-center justify-center">
+      <Loader className="size-8 transition animate-spin text-muted-foreground"/>
+    </div>
   );
 }
