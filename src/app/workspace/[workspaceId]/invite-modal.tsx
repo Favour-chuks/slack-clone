@@ -6,9 +6,8 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { CopyIcon, Navigation, RefreshCcw } from "lucide-react";
+import { CopyIcon, RefreshCcw } from "lucide-react";
 import { useWorkspaceId } from "@/hooks/use-workspace-id";
 import { toast } from "sonner";
 import { useNewJoinCode } from "@/features/workspaces/api/use-new-join-code";

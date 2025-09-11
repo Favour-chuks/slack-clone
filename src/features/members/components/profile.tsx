@@ -57,9 +57,9 @@ export const Profile = ({ memberId, onClose }: ProfileProps) => {
   const { data: currentMember, isLoading: isLoadingCurrentMember } =
     useCurrentMember({ workspaceId });
 
-  const { mutate: removeMember, isPending: isRemovingMember } =
+  const { mutate: removeMember } =
     useRemoveMember();
-  const { mutate: updateMember, isPending: isUpdatingMember } =
+  const { mutate: updateMember } =
     useUpdateMember();
 
   const avatarFallback = member?.user.name?.charAt(0).toUpperCase() || "M";

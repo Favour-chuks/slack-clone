@@ -3,7 +3,6 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
@@ -18,9 +17,9 @@ import { Loader, Plus } from "lucide-react";
 export const WorkspaceSwitcher = () => {
   const router = useRouter();
   const workspaceId = useWorkspaceId();
-  const [_open, setOpen] = useCreateWorkspaceModal();
+  const [, setOpen] = useCreateWorkspaceModal();
 
-  const { data: workspaces, isLoading: workspacesLoading } =
+  const { data: workspaces } =
     useGetWorkspaces();
 
   const { data: workspace, isLoading: workspaceLoading } = useGetWorkspace({

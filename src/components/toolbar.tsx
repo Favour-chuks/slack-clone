@@ -1,5 +1,4 @@
 import {
-  MessageSquareIcon,
   MessageSquareTextIcon,
   Pencil,
   Smile,

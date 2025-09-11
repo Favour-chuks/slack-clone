@@ -45,7 +45,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   router.push(`/workspace/${workspaceId}/channel/${id}`)
  handleClose();
  },
- onError:(error) => {
+ onError:() => {
    toast.error("failed to create a channel")
  },
 }

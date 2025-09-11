@@ -4,10 +4,8 @@ import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
-  DialogTrigger,
   DialogHeader,
   DialogTitle,
-  DialogClose,
   DialogFooter,
   DialogDescription,
 } from "@/components/ui/dialog";
@@ -15,7 +13,7 @@ import {
 export const UseConfirm = (title:string, message:string):[() => JSX.Element, () => Promise<unknown>] => {
  const [promise, setPromise] = useState<{resolve: (value: boolean) => void} | null>(null)
 
- const confirm = () => new Promise((resolve, reject) => {
+ const confirm = () => new Promise((resolve ) => {
   setPromise({resolve})
  })
 

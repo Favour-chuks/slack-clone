@@ -3,7 +3,6 @@ import { useMutation } from "convex/react";
 import { api } from "../../../../convex/_generated/api";
 import { useCallback, useMemo, useState } from "react";
 import { Id } from "../../../../convex/_generated/dataModel";
-import { newJoinCode } from '../../../../convex/workspaces';
 
 type RequestType = {workspaceId:Id<"workspaces">; joinCode:string};
 type ResponseType = Id<"workspaces"> | null;
@@ -57,6 +56,7 @@ setStatus('settled')
   error,
   isPending,
   isSuccess,
-  isSettled
+  isSettled,
+  isError
  };
 }

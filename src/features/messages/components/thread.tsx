@@ -57,7 +57,7 @@ export const Thread = ({ messageId, onClose }: ThreadProps) => {
   });
 
   const { mutate: generateUploadUrl } = useGenerateUploadUrl();
-  const { mutate: createMessage, isSuccess } = useCreateMessage();
+  const { mutate: createMessage } = useCreateMessage();
 
   const canLoadMore = status === "CanLoadMore";
   const isLoadingMore = status === "LoadingMore";
@@ -119,7 +119,7 @@ export const Thread = ({ messageId, onClose }: ThreadProps) => {
       await createMessage(values, { throwError: true });
 
       setEditorKey((prevKey) => prevKey + 1);
-    } catch (error) {
+    } catch {
       toast.error("Failed to send message");
     } finally {
       setIsPending(false);

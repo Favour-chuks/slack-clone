@@ -44,8 +44,9 @@ const WorkspaceIdPage = () => {
       router.push(`/workspace/${workspaceId}/channel/${channelId}`);
     } else if (!open && isAdmin) {
       setOpen(true);
-    } else null;
+    } else return;
   }, [
+    isAdmin,
     channelId,
     workspaceLoading,
     channelLoading,

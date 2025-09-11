@@ -31,7 +31,7 @@ const workspaceId = useWorkspaceId()
 const channelId = useChannelId()
 
 const {mutate: generateUploadUrl} = useGenerateUploadUrl()
-const {mutate: createMessage, isSuccess} = useCreateMessage()
+const {mutate: createMessage} = useCreateMessage()
  
   const handleSubmit = async ({body, image}: {body: string, image: File | null}) => {
     
@@ -70,7 +70,7 @@ const {mutate: createMessage, isSuccess} = useCreateMessage()
       await createMessage(values, {throwError: true})
   
       setEditorKey((prevKey) => prevKey + 1)
-    } catch (error) {
+    } catch {
       toast.error("Failed to send message")
     } finally {
       setIsPending(false)

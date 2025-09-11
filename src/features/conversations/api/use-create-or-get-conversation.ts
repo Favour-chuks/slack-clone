@@ -2,7 +2,7 @@ import { useMutation } from "convex/react";
 
 import { api } from "../../../../convex/_generated/api";
 import { useCallback, useMemo, useState } from "react";
-import { Id, Doc } from "../../../../convex/_generated/dataModel";
+import { Id} from "../../../../convex/_generated/dataModel";
 
 type RequestType = {
    workspaceId: Id<"workspaces">,
@@ -62,6 +62,7 @@ setStatus('settled')
   error,
   isPending,
   isSuccess,
-  isSettled
- };
+  isSettled,
+   isError
+};
 }

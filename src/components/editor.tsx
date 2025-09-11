@@ -60,13 +60,14 @@ const Editor = ({
   const containerRef = useRef<HTMLDivElement>(null);
   const disabledRef = useRef(disabled);
   const defaultValueRef = useRef(defaultValue);
-  const cancelRef = useRef(onCancel);
   const imageElementRef = useRef<HTMLInputElement>(null);
   useLayoutEffect(() => {
     submitRef.current = onSubmit;
     placeholderRef.current = placeholder;
     disabledRef.current = disabled;
-  }, []);
+  }, [
+    disabled, onSubmit, placeholder
+  ]);
 
   useEffect(() => {
     if (!containerRef.current) return;

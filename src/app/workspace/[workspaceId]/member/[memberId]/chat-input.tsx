@@ -1,6 +1,5 @@
 import { useCreateMessage } from "@/features/messages/api/use-create-message";
 import { useGenerateUploadUrl } from "@/features/upload/api/use-generate-upload-url";
-import { useChannelId } from "@/hooks/use-channel-id";
 import { useWorkspaceId } from "@/hooks/use-workspace-id";
 import dynamic from "next/dynamic"
 import Quill from "quill";
@@ -30,7 +29,7 @@ export const ChatInput = ({placeholder, conversationId}: ChatInputProps) => {
 const workspaceId = useWorkspaceId()
 
 const {mutate: generateUploadUrl} = useGenerateUploadUrl()
-const {mutate: createMessage, isSuccess} = useCreateMessage()
+const {mutate: createMessage} = useCreateMessage()
  
   const handleSubmit = async ({body, image}: {body: string, image: File | null}) => {
     
@@ -69,7 +68,7 @@ const {mutate: createMessage, isSuccess} = useCreateMessage()
       await createMessage(values, {throwError: true})
   
       setEditorKey((prevKey) => prevKey + 1)
-    } catch (error) {
+    } catch {
       toast.error("Failed to send message")
     } finally {
       setIsPending(false)

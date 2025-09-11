@@ -1,7 +1,6 @@
 import { format, isToday, isYesterday, differenceInMinutes } from "date-fns";
 
 import { GetMessagesReturnType } from "@/features/messages/api/use-get-messages";
-import { json } from "stream/consumers";
 import { Message } from "./message";
 import { ChannelHero } from "./channel-hero";
 import { useState } from "react";
@@ -9,7 +8,6 @@ import { Id } from "../../convex/_generated/dataModel";
 import { useWorkspaceId } from "@/hooks/use-workspace-id";
 import { useCurrentMember } from "@/features/members/api/use-current-member";
 import { Loader } from "lucide-react";
-import Image from 'next/image';
 import { ConversationHero } from "./conversation-hero";
 
 const TIME_THRESHOLD = 5;

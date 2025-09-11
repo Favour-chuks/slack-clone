@@ -62,6 +62,7 @@ setStatus('settled')
   error,
   isPending,
   isSuccess,
-  isSettled
+  isSettled,
+  isError
  };
 }
