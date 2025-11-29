@@ -6,7 +6,7 @@ interface ConversationHeroProps {
 }
 
 export const ConversationHero = ({ name, image }: ConversationHeroProps) => {
-  const avatarFallback = name.charAt(0).toUpperCase();
+  const avatarFallback = name?.charAt(0).toUpperCase();
 
   return (
     <div className="mt-[80px] mx-5 mb-4">
