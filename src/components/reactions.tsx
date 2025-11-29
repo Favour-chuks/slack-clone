@@ -1,3 +1,5 @@
+import { type Emoji } from "@emoji-mart/data";
+
 import { useWorkspaceId } from "@/hooks/use-workspace-id";
 import { Doc, Id } from "../../convex/_generated/dataModel";
 import { useCurrentMember } from "@/features/members/api/use-current-member";
@@ -9,6 +11,7 @@ import { EmojiPopover } from "./emoji-popover";
 
 import { MdOutlineAddReaction } from "react-icons/md";
 
+
 interface ReactionsProps {
   data: Array<
     Omit<Doc<"reactions">, "memberId"> & {
@@ -18,6 +21,20 @@ interface ReactionsProps {
   >;
   onChange: (value: string) => void;
 }
+
+interface EmojiPayload {
+  native: string;
+}
+
+// function isEmojiPayload(x: unknown): x is EmojiPayload {
+//   console.log(typeof x)
+//   console.log(x)
+//   return (
+//     typeof x === "object" &&
+//     x !== null &&
+//     typeof (x as { native?: unknown }).native === "string"
+//   );
+// }
 
 export const Reactions = ({ data, onChange }: ReactionsProps) => {
   const workspaceId = useWorkspaceId();
@@ -55,7 +72,7 @@ export const Reactions = ({ data, onChange }: ReactionsProps) => {
       ))}
       <EmojiPopover
         hint="Add reaction"
-        onEmojiSelect={(emoji) => onChange(emoji.native)}>
+        onEmojiSelect={(emoji: Emoji) => onChange(emoji?.skins[0]?.native)}>
         <button className="h-6 px-3 rounded-full bg-slate-200/70 border border-transparent hover:border-slate-500 text-slate-800 flex-items-center gap-x-1">
           <MdOutlineAddReaction className="size-4" />
         </button>

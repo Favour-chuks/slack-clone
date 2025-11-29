@@ -1,5 +1,6 @@
+// TODO: check fi the emoji mart would cause an error
 import Picker from "@emoji-mart/react";
-import data from "@emoji-mart/data";
+import data, { type Emoji } from "@emoji-mart/data";
 import {
   Popover,
   PopoverContent,
@@ -17,7 +18,7 @@ import { useState } from "react";
 interface EmojiPopoverProps {
   children: React.ReactNode;
   hint?: string;
-  onEmojiSelect: (emoji: unknown) => void;
+  onEmojiSelect: (emoji: Emoji) => void;
 }
 
 export const EmojiPopover = ({
@@ -28,7 +29,7 @@ export const EmojiPopover = ({
   const [popoverOpen, setPopoverOpen] = useState(false);
   const [tooltipOpen, setTooltipOpen] = useState(false);
 
-  const onSelect = (emoji: unknown) => {
+  const onSelect = (emoji: Emoji) => {
     onEmojiSelect(emoji);
     setPopoverOpen(false);
 
