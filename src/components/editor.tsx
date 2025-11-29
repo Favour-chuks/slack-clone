@@ -11,7 +11,6 @@ import Image from "next/image";
 import Quill, { QuillOptions } from "quill";
 import { Delta, Op } from "quill/core";
 import "quill/dist/quill.snow.css";
-import type { Emoji } from "@emoji-mart/data";
 
 import { PiTextAa } from "react-icons/pi";
 import { ImageIcon, Smile, XIcon } from "lucide-react";
