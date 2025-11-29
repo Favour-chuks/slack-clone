@@ -43,8 +43,6 @@ interface EmojiPayload {
 }
 
 function isEmojiPayload(x: unknown): x is EmojiPayload {
-  console.log(typeof x)
-  console.log(x)
   return (
     typeof x === "object" &&
     x !== null &&
