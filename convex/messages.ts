@@ -92,7 +92,6 @@ conversationId: v.optional(v.id("conversations"))
 
   let _conversationId = args.conversationId;
 
-  // only possible if we are replying in a thread in 1:1 conversations
   if(!args.conversationId && !args.channelId && args.parentMesageId){
     const parentMessage = await ctx.db.get(args.parentMesageId)
 

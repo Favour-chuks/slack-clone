@@ -26,10 +26,8 @@ export const UserButton = () => {
   }
 
 
-  // this is supposed to be destructured from the data but there is a posibility that the image and the name may not exist so it uses a default
 const image = "image" in data? data.image : undefined;
 const name = "name" in data ? data.name : "User";
-  // const { image, name } = data;
 
   
   const avatarfallback = name?.charAt(0).toUpperCase();

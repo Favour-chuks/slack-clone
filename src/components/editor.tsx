@@ -128,7 +128,6 @@ const Editor = ({
     quill.setContents(defaultValueRef.current);
     setText(quill.getText());
 
-    // to refresh the text with every keystroke change
     quill.on(Quill.events.TEXT_CHANGE, () => {
       setText(quill.getText());
     });

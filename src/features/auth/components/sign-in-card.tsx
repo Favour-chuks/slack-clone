@@ -42,7 +42,6 @@ export const SignInCard = ({ setState }: SignInCardProps) => {
      signIn("password", { email, password, flow: "signIn" })
       .catch((error) => {
         setError("invalid email or password");
-        // throw new error(error.message);
         console.error(error.message)
       })
       .finally(() => {

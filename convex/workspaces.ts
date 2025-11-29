@@ -80,7 +80,6 @@ export const get = query({
   const userId =  await auth.getUserId(ctx)
 
   if(!userId){
-   // note: in queries you cannot throw errors because it would be difficult to catch them so im seting this to an empty array 
    return [];
   }
   
@@ -102,7 +101,6 @@ export const get = query({
   }
   return workspaces;
  }
- // return await ctx.db.query("workspaces").collect()
 })
 
 export const getById = query({

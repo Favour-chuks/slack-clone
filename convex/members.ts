@@ -34,8 +34,7 @@ export const get = query({
  handler: async(ctx, args) => {
    const userId = await auth.getUserId(ctx)
 
-   // used the empty array instead of null to ensure that the get endpoint always return something and is not null
-  if (!userId){
+   if (!userId){
    return [];
   }
 
