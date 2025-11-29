@@ -22,6 +22,7 @@ import { cn } from "@/lib/utils";
 import { EmojiPopover } from "./emoji-popover";
 import { Input } from "./ui/input";
 
+
 type EditorValue = {
   image: File | null;
   body: string;
@@ -35,6 +36,14 @@ interface EditorProps {
   defaultValue?: Delta | Op[];
   disabled?: boolean;
   innerRef?: MutableRefObject<Quill | null>;
+}
+
+interface EmojiPayload {
+  native: string;
+}
+
+function isEmojiPayload(x: unknown): x is EmojiPayload {
+  return typeof x === "object" && x !== null && "native" in x && typeof (x as any).native === "string";
 }
 
 const Editor = ({
@@ -155,7 +164,8 @@ const Editor = ({
     }
   };
 
-  const onEmojiSelect = (emoji: any) => {
+  const onEmojiSelect = (emoji: unknown) => {
+    if (!isEmojiPayload(emoji)) return;
     const quill = quillRef.current;
 
     quill?.insertText(quill?.getSelection()?.index || 0, emoji.native);
