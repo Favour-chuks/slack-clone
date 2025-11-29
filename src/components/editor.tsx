@@ -11,6 +11,7 @@ import Image from "next/image";
 import Quill, { QuillOptions } from "quill";
 import { Delta, Op } from "quill/core";
 import "quill/dist/quill.snow.css";
+import type { Emoji } from "@emoji-mart/data";
 
 import { PiTextAa } from "react-icons/pi";
 import { ImageIcon, Smile, XIcon } from "lucide-react";
@@ -43,8 +44,15 @@ interface EmojiPayload {
 }
 
 function isEmojiPayload(x: unknown): x is EmojiPayload {
-  return typeof x === "object" && x !== null && "native" in x && typeof (x as any).native === "string";
+  console.log(typeof x)
+  console.log(x)
+  return (
+    typeof x === "object" &&
+    x !== null &&
+    typeof (x as { native?: unknown }).native === "string"
+  );
 }
+
 
 const Editor = ({
   variant = "create",
